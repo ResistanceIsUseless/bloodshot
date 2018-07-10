@@ -1,0 +1,19 @@
+{
+  "name": "gitbook-plugin-wide-page",
+  "version": "1.0.0",
+  "engines": {
+    "gitbook": ">=2.4.0"
+  },
+  "description": "Fluid page width instead of fixed",
+  "homepage": "https://github.com/ingoclaro/gitbook-plugin-wide-page",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ingoclaro/gitbook-plugin-wide-page.git"
+  },
+  "main": "index.js",
+  "author": {
+    "name": "Ingo Claro",
+    "email": "ingo@gmail.com"
+  },
+  "license": "MIT"
+}
