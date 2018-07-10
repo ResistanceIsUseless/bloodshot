@@ -104,24 +104,24 @@ nmap -p-
 nmap -sT  
 **Scan using TCP SYN scan \(default\)**
 nmap -sS 
-Scan UDP ports 
+**Scan UDP ports **
 nmap -sU -p 123,161,162  
-Scan selected ports - ignore discovery 
+**Scan selected ports - ignore discovery **
 nmap -Pn -F  
-Detect OS and Services 
+**Detect OS and Services **
 nmap -A  
-Scan for all HTTP servce types 
+**Scan for all HTTP servce types **
 nmap -sTV -p"http_"  
-Standard service detection 
+**Standard service detection **
 nmap -sV  Banner Grabbing 
 nmap -sV --script=banner  
-More aggressive Service Detection 
+**More aggressive Service Detection **
 nmap -sV --version-intensity 5  
-Lighter banner grabbing detection 
+**Lighter banner grabbing detection **
 nmap -sV --version-intensity 0  
-Scan using default safe scripts 
+**Scan using default safe scripts **
 nmap -sV -sC  
-Get help for a script 
+**Get help for a script **
 nmap --script-help=ssl-heartbleed  
 Scan using a specific NSE script 
 nmap -sV -p 443 –script=ssl-heartbleed.nse  
