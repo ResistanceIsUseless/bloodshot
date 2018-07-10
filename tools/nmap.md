@@ -24,7 +24,7 @@ nmap -Pn -sSU -T4 -p1-65535 -oX 192.168.37.67.xml 192.168.37.67 \| grep -v 'filt
 {% endtab %}
 {% endtabs %}
 
-nmap scripts 
+**nmap scripts **
 [https://nmap.org/nsedoc/](https://nmap.org/nsedoc/) 
 [https://hackertarget.com/nmap-cheatsheet-a-quick-reference-guide/](https://hackertarget.com/nmap-cheatsheet-a-quick-reference-guide/) 
 [https://highon.coffee/blog/nmap-cheat-sheet/](https://highon.coffee/blog/nmap-cheat-sheet/) [https://github.com/leonjza/awesome-nmap-grep](https://github.com/leonjza/awesome-nmap-grep)
@@ -123,7 +123,7 @@ nmap -sV --version-intensity 0
 nmap -sV -sC  
 **Get help for a script **
 nmap --script-help=ssl-heartbleed  
-Scan using a specific NSE script 
+**Scan using a specific NSE script **
 nmap -sV -p 443 –script=ssl-heartbleed.nse  
 Scan with a set of scripts 
 nmap -sV --script=smb_  
