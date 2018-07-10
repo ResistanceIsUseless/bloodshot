@@ -1,4 +1,7 @@
 {
+    "plugins": ["marginal"]
+}
+{
     "plugins": [
         "collapsible-menu-ex"
     ]
