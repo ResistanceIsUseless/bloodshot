@@ -1,13 +1,15 @@
 {
-    "plugins": ["marginal"]
-}
-{
+    "gitbook": "2.x.x",
     "plugins": [
-        "collapsible-menu-ex"
-    ]
-}
-{
-    "plugins": [
-        "gitbook-plugin-theme-rb"
-    ]
-}
+     "marginal"
+    ],
+    "links": {
+        "sidebar": {
+            "Contact us / Support": "https://www.gitbook.com/contact"
+        }
+    },
+    "pluginsConfig": {}
+
+  /*
+  "collapsible-menu-ex"
+*/
