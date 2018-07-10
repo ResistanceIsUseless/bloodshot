@@ -24,11 +24,20 @@ nmap -Pn -sSU -T4 -p1-65535 -oX 192.168.37.67.xml 192.168.37.67 \| grep -v 'filt
 {% endtab %}
 {% endtabs %}
 
-nmap scripts [https://nmap.org/nsedoc/](https://nmap.org/nsedoc/) [https://hackertarget.com/nmap-cheatsheet-a-quick-reference-guide/](https://hackertarget.com/nmap-cheatsheet-a-quick-reference-guide/) [https://highon.coffee/blog/nmap-cheat-sheet/](https://highon.coffee/blog/nmap-cheat-sheet/) [https://github.com/leonjza/awesome-nmap-grep](https://github.com/leonjza/awesome-nmap-grep)
+nmap scripts 
+[https://nmap.org/nsedoc/](https://nmap.org/nsedoc/) 
+[https://hackertarget.com/nmap-cheatsheet-a-quick-reference-guide/](https://hackertarget.com/nmap-cheatsheet-a-quick-reference-guide/) 
+[https://highon.coffee/blog/nmap-cheat-sheet/](https://highon.coffee/blog/nmap-cheat-sheet/) [https://github.com/leonjza/awesome-nmap-grep](https://github.com/leonjza/awesome-nmap-grep)
 
 Most used: HTTP Service Scan and Enumeration nmap -sSV -P0 -p"http\*" --script http-enum 192.168.37.53-oG /root/Documents/Scans/192.168.37.53-http-scan.txt
 
-Generic Vuln Scan nmap -Pn --script vuln  nmap -sV --script vulners --script-args mincvss=5.0  nmap -p 139,445 --script= 10.11.1.5 nmap -p 0-65535 -A -v --script unusual-port nmap -p 80 10.11.1.229 -script http-put --script-args http-put.url=’file.asp’,http-put.file=’/root/Documents/Exploits/WebShells/windows-meterpreter-staged-reverse-tcp-443.asp’
+Generic 
+Vuln Scan 
+nmap -Pn --script vuln  
+nmap -sV --script vulners --script-args mincvss=5.0  
+nmap -p 139,445 --script= 10.11.1.5 
+nmap -p 0-65535 -A -v --script unusual-port 
+nmap -p 80 10.11.1.229 -script http-put --script-args http-put.url=’file.asp’,http-put.file=’/root/Documents/Exploits/WebShells/windows-meterpreter-staged-reverse-tcp-443.asp’
 
 ## force-scan all ports UDP + TCP per host \(takes about 4 minutes per host on a LAN or roughly 17 hours for 254 hosts\):
 
@@ -36,9 +45,103 @@ Generic Vuln Scan nmap -Pn --script vuln  nmap -sV --script vulners --script-arg
 
 ## intensive scan on the open ports per host, TCP and UDP separately to speed scan up:
 
-tcp: • nmap -nvv -Pn -sSV -T1 -p$\(cat 10.11.1.110.xml \| grep portid \| grep protocol=\"tcp\" \| cut -d'"' -f4 \| paste -sd "," -\) --version-intensity 9 -oX /root/Documents/Scans/10.1.1.110-intense-tcp.xml 10.11.1.110 udp: • nmap -nvv -Pn -sUV -T1 -p$\(cat 10.1.1.110.xml \| grep portid \| grep protocol=\"udp\" \| cut -d'"' -f4 \| paste -sd "," -\) --version-intensity 9 -oX /root/Documents/Scans/10.11.1.110-intense-udp.xml 10.1.1.110
+tcp: 
+• nmap -nvv -Pn -sSV -T1 -p$\(cat 10.11.1.110.xml \| grep portid \| grep protocol=\"tcp\" \| cut -d'"' -f4 \| paste -sd "," -\) --version-intensity 9 -oX /root/Documents/Scans/10.1.1.110-intense-tcp.xml 10.11.1.110 udp: • nmap -nvv -Pn -sUV -T1 -p$\(cat 10.1.1.110.xml \| grep portid \| grep protocol=\"udp\" \| cut -d'"' -f4 \| paste -sd "," -\) --version-intensity 9 -oX /root/Documents/Scans/10.11.1.110-intense-udp.xml 10.1.1.110
 
-Scan a range of IPs nmap 192.168.1.1-20 Scan a subnet nmap 192.168.1.0/24 Discover hostnames nmap -sL 192.168.0.0/24 Scan targets from a text file nmap -iL list-of-ips.txt Scan a single Port nmap -p 22  Scan a range of ports nmap -p 1-100  Scan 100 most common ports \(Fast\) nmap -F  Scan all 65535 ports nmap -p-  Scan using TCP connect nmap -sT  Scan using TCP SYN scan \(default\) nmap -sS  Scan UDP ports nmap -sU -p 123,161,162  Scan selected ports - ignore discovery nmap -Pn -F  Detect OS and Services nmap -A  Scan for all HTTP servce types nmap -sTV -p"http_"  Standard service detection nmap -sV  Banner Grabbing nmap -sV --script=banner  More aggressive Service Detection nmap -sV --version-intensity 5  Lighter banner grabbing detection nmap -sV --version-intensity 0  Scan using default safe scripts nmap -sV -sC  Get help for a script nmap --script-help=ssl-heartbleed  Scan using a specific NSE script nmap -sV -p 443 –script=ssl-heartbleed.nse  Scan with a set of scripts nmap -sV --script=smb_  Discover hostnames nmap -sL 192.168.0.0/24 DNS Brute Force nmap -p 80 --script dns-brute.nse  DNS Broadcast Discovery nmap --script=broadcast-dns-service-discovery Find Virtual Hosts on IP nmap -p 80 --script hostmap-bfk.nse  Traceroute GeoLocation nmap --traceroute --script traceroute-geolocation.nse -p 80  VNC Auth Bypass nmap -sV --script=realvnc-auth-bypass  SSL ROCA Weak keys nmap -p 22,443 --script rsa-vuln-roca  IMAP Brute nmap -p 143,993 --script imap-brute  pop3 brute nmap -sV --script=pop3-brute  Unix rexec brute nmap -p 512 --script rexec-brute  Unix rlogin brute nmap -p 513 --script rlogin-brute  SIP Brute nmap -sU -p 5060 --script=sip-brute  SMTP Brute nmap -p 25 --script smtp-brute  SNMP Brute nmap -sU --script snmp-brute  \[--script-args snmp-brute.communitiesdb= \] SSH Brute nmap -p 22 --script ssh-brute --script-args userdb=users.lst,passdb=pass.lst  --script-args ssh-brute.timeout=4s  Telnet Brute nmap -p 23 --script telnet-brute --script-args userdb=myusers.lst,passdb=mypwds.lst,telnet-brute.timeout=8s 
+**Scan a range of IPs **
+
+
+```
+nmap 192.168.1.1-20 
+```
+
+
+**Scan a subnet nmap **
+
+
+```
+192.168.1.0/24 
+```
+
+
+**Discover hostnames **
+
+
+```
+nmap -sL 192.168.0.0/24 
+```
+
+
+**Scan targets from a text file **
+
+
+```
+nmap -iL list-of-ips.txt 
+```
+
+
+**Scan a single Port **
+
+
+```
+nmap -p 22  
+```
+
+
+**Scan a range of ports** 
+
+
+```
+nmap -p 1-100  
+```
+
+
+**Scan 100 most common ports \(Fast\) **
+nmap -F  
+**Scan all 65535 ports **
+nmap -p-  
+**Scan using TCP connect **
+nmap -sT  
+**Scan using TCP SYN scan \(default\)**
+nmap -sS 
+Scan UDP ports 
+nmap -sU -p 123,161,162  
+Scan selected ports - ignore discovery 
+nmap -Pn -F  
+Detect OS and Services 
+nmap -A  
+Scan for all HTTP servce types 
+nmap -sTV -p"http_"  
+Standard service detection 
+nmap -sV  Banner Grabbing 
+nmap -sV --script=banner  
+More aggressive Service Detection 
+nmap -sV --version-intensity 5  
+Lighter banner grabbing detection 
+nmap -sV --version-intensity 0  
+Scan using default safe scripts 
+nmap -sV -sC  
+Get help for a script 
+nmap --script-help=ssl-heartbleed  
+Scan using a specific NSE script 
+nmap -sV -p 443 –script=ssl-heartbleed.nse  
+Scan with a set of scripts 
+nmap -sV --script=smb_  
+Discover hostnames 
+nmap -sL 192.168.0.0/24 
+DNS Brute Force 
+nmap -p 80 --script dns-brute.nse  
+DNS Broadcast Discovery 
+nmap --script=broadcast-dns-service-discovery 
+Find Virtual Hosts on IP 
+nmap -p 80 --script hostmap-bfk.nse  
+Traceroute GeoLocation 
+nmap --traceroute --script traceroute-geolocation.nse -p 80  
+VNC Auth Bypass 
+nmap -sV --script=realvnc-auth-bypass  
+SSL ROCA Weak keys 
+nmap -p 22,443 --script rsa-vuln-roca  
+IMAP Brute nmap -p 143,993 --script imap-brute  pop3 brute nmap -sV --script=pop3-brute  Unix rexec brute nmap -p 512 --script rexec-brute  Unix rlogin brute nmap -p 513 --script rlogin-brute  SIP Brute nmap -sU -p 5060 --script=sip-brute  SMTP Brute nmap -p 25 --script smtp-brute  SNMP Brute nmap -sU --script snmp-brute  \[--script-args snmp-brute.communitiesdb= \] SSH Brute nmap -p 22 --script ssh-brute --script-args userdb=users.lst,passdb=pass.lst  --script-args ssh-brute.timeout=4s  Telnet Brute nmap -p 23 --script telnet-brute --script-args userdb=myusers.lst,passdb=mypwds.lst,telnet-brute.timeout=8s 
 
 Scan Types  
 -sS/sT/sA/sW/sM: TCP SYN/Connect\(\)/ACK/Window/Maimon scans -sU: UDP Scan -sN/sF/sX: TCP Null, FIN, and Xmas scans --scanflags : Customize TCP scan flags -sI : Idle scan -sY/sZ: SCTP INIT/COOKIE-ECHO scans -sO: IP protocol scan -b : FTP bounce scan -sV: Probe open ports to determine service/version info --version-intensity : Set from 0 \(light\) to 9 \(try all probes\) --version-light: Limit to most likely probes \(intensity 2\) --version-all: Try every single probe \(intensity 9\) --version-trace: Show detailed version scan activity \(for debugging\) -sL: List Scan - simply list targets to scan -sn: Ping Scan - disable port scan -Pn: Treat all hosts as online -- skip host discovery -PS/PA/PU/PY\[portlist\]: TCP SYN/ACK, UDP or SCTP discovery to given ports -PE/PP/PM: ICMP echo, timestamp, and netmask request discovery probes -PO\[protocol list\]: IP Protocol Ping -n/-R: Never do DNS resolution/Always resolve \[default: sometimes\] --dns-servers : Specify custom DNS servers --system-dns: Use OS's DNS resolver --traceroute: Trace hop path to each host
