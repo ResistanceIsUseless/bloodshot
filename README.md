@@ -1,10 +1,6 @@
----
-description: This is an overview of what you can expect to find in this manual.
----
-
 # Overview
 
-## Getting Super Powers
+## Getting Super Powers...
 
 Becoming a super hero is a fairly straight forward process:
 

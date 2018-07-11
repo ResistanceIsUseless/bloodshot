@@ -1,27 +1,16 @@
----
-description: Privilege escalation techniques for Windows
----
-
 # Windows
 
-## Getting Super Powers
-
-Becoming a super hero is a fairly straight forward process:
-
 {% hint style="info" %}
- Super-powers are granted randomly so please submit an issue if you're not happy with yours.
+### Unquoted Service Paths
 {% endhint %}
 
-```
-$ give me super-powers
-```
+### Unquoted Service Paths
 
-Once you're strong enough, save the world:
+* [ ] `wmic service get name,displayname,pathname,startmode |findstr /i "Auto" |findstr /i /v "C:\Windows\" |findstr /i /v """`
+* [ ] `accesschk64.exe -uwcqv "Authenticated Users" * /accepteula`
+* [ ] `windows-privesc-check2.exe --audit -a -o wpc-report`
 
-```
-// Ain't no code for that yet, sorry
-echo 'You got to trust me on this, I saved the world'
-```
+
 
 
 
