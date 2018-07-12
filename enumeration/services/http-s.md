@@ -67,8 +67,10 @@ dirb http://10.1.1.1 /usr/share/wordlists/dirb/common.txt
 ### SQLMap
 
 {% hint style="info" %}
-
+Additional Information on SQLMap can be found [here](https://bloodshot.gitbook.io/manual/tools/burp-suite)
 {% endhint %}
 
 {% page-ref page="../../tools/sqlmap.md" %}
+
+
 
