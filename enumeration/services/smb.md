@@ -174,7 +174,17 @@ nmap -p445 --script smb-vuln-ms17-010 <target>
 nmap -p445 --script vuln <target>
 ```
 
+{% hint style="warning" %}
+Add Python Exploit For Eternal Blue
+{% endhint %}
+
 ### metasploit
+
+#### msfconsole
+
+#### msfvenom
+
+#### meterpreter
 
 
 

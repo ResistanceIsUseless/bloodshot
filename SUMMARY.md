@@ -44,4 +44,6 @@
   * [Nmap](tools/nmap.md)
   * [SQLMap](tools/sqlmap.md)
   * [Burp Suite](tools/burp-suite.md)
+* [Other Resources](other-resources.md)
+* [Appendix](appendix.md)
 
